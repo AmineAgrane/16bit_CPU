@@ -1,0 +1,63 @@
+Library IEEE;
+use ieee.std_logic_1164.all;
+
+entity reg_1bitP_test is
+end entity;
+
+architecture archi_reg_1bitP_test of reg_1bitP_test is
+	component reg_1bitP is
+		port ( 
+			rst, clk, d, set : in std_logic;
+			q : out std_logic
+		);
+	end component;
+	
+	signal d_s, q_s, rst_s, clk_s, set_s : std_logic;
+	
+	begin
+		reg_1bitP_1 : reg_1bitP
+			port map (
+				rst => rst_s,
+				clk => clk_s,
+				set => set_s,
+				d => d_s,
+				q => q_s
+			);
+			
+		process
+			begin
+				rst_s <= '1';
+				clk_s <= '0';
+				wait for 20 ns;
+				
+				set_s <= '0';
+				
+				d_s <= '0';
+				clk_s <= '1';
+				wait for 20 ns;
+				
+				d_s <= '1';
+				clk_s <= '0';
+				wait for 20 ns;
+				clk_s <= '1';
+				wait for 20 ns;
+				
+				d_s <= '0';
+				set_s <= '1';
+				clk_s <= '0';
+				wait for 20 ns;
+				clk_s <= '1';
+				wait for 20 ns;
+				
+				d_s <= '1';
+				set_s <= '1';
+				clk_s <= '0';
+				wait for 20 ns;
+				clk_s <= '1';
+				wait for 20 ns;
+				
+				wait;
+		end process;
+	
+			
+end architecture;
