@@ -2,4 +2,4 @@
 16-bit CPU written in VHDL
 
 **Architecture:** 
-![Architecture du CPU ](relative/path/to/img.jpg?raw=true "Title")
+![Architecture du CPU ](Architecture/Architecture_CPU.png?raw=true "Title")
